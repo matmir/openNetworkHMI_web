@@ -1,11 +1,201 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}openNetworkHMI main page{% endblock %}
+{% block title %}openNetworkHMI test!{% endblock %}
 
 {% block body %}
 
-<div class="alert alert-primary" role="alert">
-    openNetworkHMI main page
+<div class="alert alert-success" role="alert">
+    openNetworkHMI test page
 </div>
+    
+    <button id="test_MULTI_CMD" type="button" class="btn btn-success">MULTI_CMD INPUTS WORD</button>
+    <div id="reply_MULTI_CMD_C1"></div>
+    <div id="reply_MULTI_CMD_C2"></div>
+    <div id="reply_MULTI_CMD_C3"></div>
+    <div id="reply_MULTI_CMD_C4"></div>
+    <div id="reply_error_MULTI_CMD"></div>
+    <br />
+    
+    <button id="test_MULTI_CMD_I" type="button" class="btn btn-success">MULTI_CMD INPUTS INT</button>
+    <div id="reply_MULTI_CMD_C1_I"></div>
+    <div id="reply_MULTI_CMD_C2_I"></div>
+    <div id="reply_MULTI_CMD_C3_I"></div>
+    <div id="reply_MULTI_CMD_C4_I"></div>
+    <div id="reply_error_MULTI_CMD_I"></div>
+    <br />
+    
+    <table>
+        <tr>
+            <td>Driver 1</td>
+            <td>Driver 2</td>
+            <td>Driver 3</td>
+            <td>Driver 4</td>
+        </tr>
         
+        <tr>
+            <td>
+                <button id="D1_GET_BIT" type="button" class="btn btn-success">GET_BIT</button>
+                <button id="D1_SET_BIT" type="button" class="btn btn-success">SET_BIT</button>
+                <button id="D1_INVERT_BIT" type="button" class="btn btn-success">INVERT_BIT</button>
+                <button id="D1_RESET_BIT" type="button" class="btn btn-success">RESET_BIT</button>
+                <div id="reply_D1_GET_BIT"></div><div id="reply_D1_SET_BIT"></div><div id="reply_D1_INVERT_BIT"></div><div id="reply_D1_RESET_BIT"></div>
+                <br />
+
+                <button id="D1_GET_BITS" type="button" class="btn btn-success">GET_BITS</button>
+                <button id="D1_SET_BITS" type="button" class="btn btn-success">SET_BITS</button>
+                <div id="reply_D1_GET_BITS"></div><div id="reply_D1_SET_BITS"></div>
+                <br />
+
+                <button id="D1_GET_BYTE" type="button" class="btn btn-success">GET_BYTE</button>
+                <button id="D1_WRITE_BYTE" type="button" class="btn btn-success">WRITE_BYTE</button>
+                <div id="reply_D1_GET_BYTE"></div><div id="reply_D1_WRITE_BYTE"></div>
+                <br />
+
+                <button id="D1_GET_WORD" type="button" class="btn btn-success">GET_WORD</button>
+                <button id="D1_WRITE_WORD" type="button" class="btn btn-success">WRITE_WORD</button>
+                <div id="reply_D1_GET_WORD"></div><div id="reply_D1_WRITE_WORD"></div>
+                <br />
+
+                <button id="D1_GET_DWORD" type="button" class="btn btn-success">GET_DWORD</button>
+                <button id="D1_WRITE_DWORD" type="button" class="btn btn-success">WRITE_DWORD</button>
+                <div id="reply_D1_GET_DWORD"></div><div id="reply_D1_WRITE_DWORD"></div>
+                <br />
+
+                <button id="D1_GET_INT" type="button" class="btn btn-success">GET_INT</button>
+                <button id="D1_WRITE_INT" type="button" class="btn btn-success">WRITE_INT</button>
+                <div id="reply_D1_GET_INT"></div><div id="reply_D1_WRITE_INT"></div>
+                <br />
+
+                <button id="D1_GET_REAL" type="button" class="btn btn-success">GET_REAL</button>
+                <button id="D1_WRITE_REAL" type="button" class="btn btn-success">WRITE_REAL</button>
+                <div id="reply_D1_GET_REAL"></div><div id="reply_D1_WRITE_REAL"></div>
+            </td>
+            
+            <td>
+                <button id="D2_GET_BIT" type="button" class="btn btn-success">GET_BIT</button>
+                <button id="D2_SET_BIT" type="button" class="btn btn-success">SET_BIT</button>
+                <button id="D2_INVERT_BIT" type="button" class="btn btn-success">INVERT_BIT</button>
+                <button id="D2_RESET_BIT" type="button" class="btn btn-success">RESET_BIT</button>
+                <div id="reply_D2_GET_BIT"></div><div id="reply_D2_SET_BIT"></div><div id="reply_D2_INVERT_BIT"></div><div id="reply_D2_RESET_BIT"></div>
+                <br />
+
+                <button id="D2_GET_BITS" type="button" class="btn btn-success">GET_BITS</button>
+                <button id="D2_SET_BITS" type="button" class="btn btn-success">SET_BITS</button>
+                <div id="reply_D2_GET_BITS"></div><div id="reply_D2_SET_BITS"></div>
+                <br />
+
+                <button id="D2_GET_BYTE" type="button" class="btn btn-success">GET_BYTE</button>
+                <button id="D2_WRITE_BYTE" type="button" class="btn btn-success">WRITE_BYTE</button>
+                <div id="reply_D2_GET_BYTE"></div><div id="reply_D2_WRITE_BYTE"></div>
+                <br />
+
+                <button id="D2_GET_WORD" type="button" class="btn btn-success">GET_WORD</button>
+                <button id="D2_WRITE_WORD" type="button" class="btn btn-success">WRITE_WORD</button>
+                <div id="reply_D2_GET_WORD"></div><div id="reply_D2_WRITE_WORD"></div>
+                <br />
+
+                <button id="D2_GET_DWORD" type="button" class="btn btn-success">GET_DWORD</button>
+                <button id="D2_WRITE_DWORD" type="button" class="btn btn-success">WRITE_DWORD</button>
+                <div id="reply_D2_GET_DWORD"></div><div id="reply_D2_WRITE_DWORD"></div>
+                <br />
+
+                <button id="D2_GET_INT" type="button" class="btn btn-success">GET_INT</button>
+                <button id="D2_WRITE_INT" type="button" class="btn btn-success">WRITE_INT</button>
+                <div id="reply_D2_GET_INT"></div><div id="reply_D2_WRITE_INT"></div>
+                <br />
+
+                <button id="D2_GET_REAL" type="button" class="btn btn-success">GET_REAL</button>
+                <button id="D2_WRITE_REAL" type="button" class="btn btn-success">WRITE_REAL</button>
+                <div id="reply_D2_GET_REAL"></div><div id="reply_D2_WRITE_REAL"></div>
+            </td>
+            
+            <td>
+                <button id="D3_GET_BIT" type="button" class="btn btn-success">GET_BIT</button>
+                <button id="D3_SET_BIT" type="button" class="btn btn-success">SET_BIT</button>
+                <button id="D3_INVERT_BIT" type="button" class="btn btn-success">INVERT_BIT</button>
+                <button id="D3_RESET_BIT" type="button" class="btn btn-success">RESET_BIT</button>
+                <div id="reply_D3_GET_BIT"></div><div id="reply_D3_SET_BIT"></div><div id="reply_D3_INVERT_BIT"></div><div id="reply_D3_RESET_BIT"></div>
+                <br />
+
+                <button id="D3_GET_BITS" type="button" class="btn btn-success">GET_BITS</button>
+                <button id="D3_SET_BITS" type="button" class="btn btn-success">SET_BITS</button>
+                <div id="reply_D3_GET_BITS"></div><div id="reply_D3_SET_BITS"></div>
+                <br />
+
+                <button id="D3_GET_BYTE" type="button" class="btn btn-success">GET_BYTE</button>
+                <button id="D3_WRITE_BYTE" type="button" class="btn btn-success">WRITE_BYTE</button>
+                <div id="reply_D3_GET_BYTE"></div><div id="reply_D3_WRITE_BYTE"></div>
+                <br />
+
+                <button id="D3_GET_WORD" type="button" class="btn btn-success">GET_WORD</button>
+                <button id="D3_WRITE_WORD" type="button" class="btn btn-success">WRITE_WORD</button>
+                <div id="reply_D3_GET_WORD"></div><div id="reply_D3_WRITE_WORD"></div>
+                <br />
+
+                <button id="D3_GET_DWORD" type="button" class="btn btn-success">GET_DWORD</button>
+                <button id="D3_WRITE_DWORD" type="button" class="btn btn-success">WRITE_DWORD</button>
+                <div id="reply_D3_GET_DWORD"></div><div id="reply_D3_WRITE_DWORD"></div>
+                <br />
+
+                <button id="D3_GET_INT" type="button" class="btn btn-success">GET_INT</button>
+                <button id="D3_WRITE_INT" type="button" class="btn btn-success">WRITE_INT</button>
+                <div id="reply_D3_GET_INT"></div><div id="reply_D3_WRITE_INT"></div>
+                <br />
+
+                <button id="D3_GET_REAL" type="button" class="btn btn-success">GET_REAL</button>
+                <button id="D3_WRITE_REAL" type="button" class="btn btn-success">WRITE_REAL</button>
+                <div id="reply_D3_GET_REAL"></div><div id="reply_D3_WRITE_REAL"></div>
+            </td>
+            
+            <td>
+                <button id="D4_GET_BIT" type="button" class="btn btn-success">GET_BIT</button>
+                <button id="D4_SET_BIT" type="button" class="btn btn-success">SET_BIT</button>
+                <button id="D4_INVERT_BIT" type="button" class="btn btn-success">INVERT_BIT</button>
+                <button id="D4_RESET_BIT" type="button" class="btn btn-success">RESET_BIT</button>
+                <div id="reply_D4_GET_BIT"></div><div id="reply_D4_SET_BIT"></div><div id="reply_D4_INVERT_BIT"></div><div id="reply_D4_RESET_BIT"></div>
+                <br />
+
+                <button id="D4_GET_BITS" type="button" class="btn btn-success">GET_BITS</button>
+                <button id="D4_SET_BITS" type="button" class="btn btn-success">SET_BITS</button>
+                <div id="reply_D4_GET_BITS"></div><div id="reply_D4_SET_BITS"></div>
+                <br />
+
+                <button id="D4_GET_BYTE" type="button" class="btn btn-success">GET_BYTE</button>
+                <button id="D4_WRITE_BYTE" type="button" class="btn btn-success">WRITE_BYTE</button>
+                <div id="reply_D4_GET_BYTE"></div><div id="reply_D4_WRITE_BYTE"></div>
+                <br />
+
+                <button id="D4_GET_WORD" type="button" class="btn btn-success">GET_WORD</button>
+                <button id="D4_WRITE_WORD" type="button" class="btn btn-success">WRITE_WORD</button>
+                <div id="reply_D4_GET_WORD"></div><div id="reply_D4_WRITE_WORD"></div>
+                <br />
+
+                <button id="D4_GET_DWORD" type="button" class="btn btn-success">GET_DWORD</button>
+                <button id="D4_WRITE_DWORD" type="button" class="btn btn-success">WRITE_DWORD</button>
+                <div id="reply_D4_GET_DWORD"></div><div id="reply_D4_WRITE_DWORD"></div>
+                <br />
+
+                <button id="D4_GET_INT" type="button" class="btn btn-success">GET_INT</button>
+                <button id="D4_WRITE_INT" type="button" class="btn btn-success">WRITE_INT</button>
+                <div id="reply_D4_GET_INT"></div><div id="reply_D4_WRITE_INT"></div>
+                <br />
+
+                <button id="D4_GET_REAL" type="button" class="btn btn-success">GET_REAL</button>
+                <button id="D4_WRITE_REAL" type="button" class="btn btn-success">WRITE_REAL</button>
+                <div id="reply_D4_GET_REAL"></div><div id="reply_D4_WRITE_REAL"></div>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <br />
+    <br />
+    
+    <button id="exitClient" type="button" class="btn btn-danger">Exit client</button>
+    <div id="replyExitClient"></div>
+            
+{% endblock %}
+
+{% block javascripts %}
+    <script type="module" src="{{ asset('js/test.js') }}"></script>
 {% endblock %}
