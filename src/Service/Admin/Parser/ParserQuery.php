@@ -338,7 +338,7 @@ class ParserQuery
         }
         // Check value range REAL
         if ($func == 'CMD_WRITE_REAL') {
-            if (!(is_float($data['value']))) {
+            if (!(is_float($data['value']+0))) {
                 throw new ParserException($func . ': Value is out of range!');
             }
         }

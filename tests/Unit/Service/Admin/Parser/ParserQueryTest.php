@@ -988,7 +988,7 @@ class ParserQueryTest extends TestCase
         $query = new ParserQuery();
         $query->query($cmd);
     }
-    
+
     public function testQueryWriteRealErr4()
     {
         $this->expectException(ParserException::class);
@@ -998,12 +998,28 @@ class ParserQueryTest extends TestCase
         $cmd = array(
             'cmd' => ParserCommands::WRITE_REAL,
             'tag' => 'TestREAL1',
-            'value' => '-6.8'
+            'value' => '-650'
         );
         
         // Prepare query
         $query = new ParserQuery();
         $query->query($cmd);
+    }
+    
+    public function testQueryWriteReal2()
+    {
+        // Prepare command
+        $cmd = array(
+            'cmd' => ParserCommands::WRITE_REAL,
+            'tag' => 'TestREAL1',
+            'value' => '-6.0'
+        );
+        
+        // Prepare query
+        $query = new ParserQuery();
+        $str = $query->query($cmd);
+
+        $this->assertEquals('39|TestREAL1,-6.0', $str);
     }
     
     /**
