@@ -11,13 +11,6 @@
     {% endfor %}
     
     <div>
-        <a class="btn btn-danger" href="{{ path('admin_logs_clear') }}">Delete all logs</a>
-        <a class="btn btn-warning" href="{{ path('admin_logs_archive') }}">Archive all logs</a>
-    </div>
-    
-    <br />
-    
-    <div>
         <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link {% if (component == 'mainProg')  %}active{% endif %}" href="{{ path('admin_logs_show', {'component': 'mainProg'}) }}">Main program</a>

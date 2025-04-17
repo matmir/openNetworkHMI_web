@@ -12,7 +12,6 @@ use App\Form\Admin\DriverModbusForm;
 use App\Form\Admin\DriverSHMForm;
 use App\Service\Admin\ConfigGeneralMapper;
 use App\Service\Admin\DriverConnectionMapper;
-use App\Service\Admin\SystemScripts;
 use App\Entity\Admin\DriverModbus;
 use App\Entity\Admin\DriverSHM;
 use App\Entity\Admin\DriverType;
@@ -24,20 +23,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin_index")
      */
-    public function index(SystemScripts $scripts, ConfigGeneralMapper $cfgMapper, DriverConnectionMapper $connMapper)
-    {
-        // Get service status
-        $services = $scripts->getServiceStatus();
-        
-        // Get restart flag
-        $restart = $cfgMapper->serverNeedRestart();
-        
+    public function index(ConfigGeneralMapper $cfgMapper, DriverConnectionMapper $connMapper)
+    {        
         // Get connections
         $connections = $connMapper->getConnections(true);
         
         return $this->render('admin/index.html.twig', array(
-            'services' => $services,
-            'restart' => $restart,
             'connections' => $connections
         ));
     }
@@ -318,30 +309,5 @@ class AdminController extends AbstractController
             'component' => $component,
             'log' => $log
         ));
-    }
-    
-    /**
-     * @Route("/admin/logs/clear", name="admin_logs_clear")
-     */
-    public function logsClear(SystemScripts $scripts)
-    {
-        $scripts->clearLogs();
-        
-        return $this->redirect($this->generateUrl('admin_logs_show'));
-    }
-    
-    /**
-     * @Route("/admin/logs/archive", name="admin_logs_archive")
-     */
-    public function logsArchive(SystemScripts $scripts)
-    {
-        $scripts->archiveLogs();
-        
-        $this->addFlash(
-            'log-msg-ok',
-            'All logs archived!'
-        );
-        
-        return $this->redirect($this->generateUrl('admin_logs_show'));
     }
 }

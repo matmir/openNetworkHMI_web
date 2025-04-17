@@ -9,7 +9,6 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\Form;
 use App\Service\Admin\ScriptItemMapper;
 use App\Service\Admin\ConfigGeneralMapper;
-use App\Service\Admin\SystemScripts;
 use App\Form\Admin\ScriptItemForm;
 use App\Entity\Admin\ScriptItem;
 use App\Entity\Paginator;
@@ -17,6 +16,28 @@ use App\Entity\AppException;
 
 class ScriptItemController extends AbstractController
 {
+    /**
+     * Build full path to the script
+     *
+     * @param string $scriptDir Script directory path
+     * @param string $script Script name
+     * @return string Full path to the script
+     */
+    private function buildScriptPath(string $scriptDir, string $script): string
+    {
+        $scriptPath = "";
+        
+        // Script directory
+        $size = strlen($scriptDir);
+        if ($scriptDir[$size - 1] != '/') {
+            $scriptPath = $scriptDir . "/" . $script;
+        } else {
+            $scriptPath = $scriptDir . $script;
+        }
+        
+        return $scriptPath;
+    }
+
     /**
      * Check script list router parameters
      *
@@ -130,7 +151,7 @@ class ScriptItemController extends AbstractController
             
             try {
                 // Check if file exist on disk
-                if (!file_exists(SystemScripts::buildScriptPath($cfg->getUserScriptsPath(), $script->getName()))) {
+                if (!file_exists($this->buildScriptPath($cfg->getUserScriptsPath(), $script->getName()))) {
                     throw new AppException("Script: " . $script->getName() .
                             " does not exist on disk!", AppException::SCRIPT_FILE_NOT_EXIST);
                 }
@@ -179,7 +200,7 @@ class ScriptItemController extends AbstractController
             
             try {
                 // Check if file exist on disk
-                if (!file_exists(SystemScripts::buildScriptPath($cfg->getUserScriptsPath(), $scriptN->getName()))) {
+                if (!file_exists($this->buildScriptPath($cfg->getUserScriptsPath(), $scriptN->getName()))) {
                     throw new AppException("Script: " . $scriptN->getName() .
                             " does not exist on disk!", AppException::SCRIPT_FILE_NOT_EXIST);
                 }
